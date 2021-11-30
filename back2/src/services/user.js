@@ -6,7 +6,7 @@ createUser = async(user)=>{
     return user
 }
 
-getUser = async()=>{
+getUsers = async()=>{
     let user = await User.find({})
     return user
 }
@@ -17,5 +17,24 @@ getUserById = async(userId)=>{
 }
 
 updateUser = async(userId,user)=>{
-    let new_user = User.findByIdAndUpdate(userId,user,{new:true}) //{new:true} -> para traer el dato actualizado
+    let newuser = User.findByIdAndUpdate(userId,user,{new:true}) //{new:true} -> para traer el dato actualizado
+    return newuser
+}
+
+//para llenar el array
+UpdateProject = async(userId,projectId)=>{
+    let user = await User.findByIdAndUpdate(userId,{
+        $push:{
+            projects:projectId
+        }
+    })
+    return user
+}
+
+module.exports = {
+    createUser,
+    getUsers,
+    getUserById,
+    updateUser,
+    updateProject
 }
