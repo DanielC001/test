@@ -1,18 +1,18 @@
 const User = require('../models/user')
 
 createUser = async(user)=>{
-    let user = new User(user)
+    let userInstance = new User(user)
     user = await userInstance.save()
     return user
 }
 
 getUsers = async()=>{
-    let user = await User.find({})
+    let user = await User.find({}).populate("projects")
     return user
 }
 
 getUserById = async(userId)=>{
-    let user = await User.findById((userId)).populate("projects") //variable del esquema
+    let user = await User.findById(userId).populate("projects") //variable del esquema
     return user
 }
 
@@ -22,7 +22,7 @@ updateUser = async(userId,user)=>{
 }
 
 //para llenar el array
-UpdateProject = async(userId,projectId)=>{
+updateProject = async(userId,projectId)=>{
     let user = await User.findByIdAndUpdate(userId,{
         $push:{
             projects:projectId

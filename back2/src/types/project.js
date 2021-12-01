@@ -1,7 +1,7 @@
 const {gql} = require("apollo-server-express")
 
 //! -> obligatorio
-const userType = gql`
+const projectType = gql`
     type User{
         _id:ID!
         name:String
@@ -19,26 +19,23 @@ const userType = gql`
         owner:ID
     }
     type Query{
-        getUsers:[User]
-        getUserById(_id:String):User
+        getProjects:[Project]
+        getProjectById(_id:String):Project
     }
     type Mutation{
-        createUser(
+        createProject(
             name:String
-            lastName:String
-            phone:String
-            email:String!
-            password:String!
-        ):User
-        updateUser(
+            description:String
+            topic:String
+            owner:ID
+        ):Project
+        updateProject(
             _id:ID!
             name:String
-            lastName:String
-            phone:String
-            email:String!
-            password:String!
-        ):User
+            description:String
+            topic:String
+        ):Project
     }
 `;
 
-module.exports = {userType}
+module.exports = {projectType}

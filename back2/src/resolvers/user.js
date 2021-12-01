@@ -9,7 +9,6 @@ const userResolvers = {
         },
         getUserById:async(parent,args)=>{
             let user = await userService.getUserById(args._id)
-            return user
         }
     },
     Mutation:{
@@ -26,5 +25,5 @@ const userResolvers = {
 }
 
 module.exports={
-    UserResolvers
+    userResolvers
 }
