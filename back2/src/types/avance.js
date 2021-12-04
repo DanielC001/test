@@ -11,7 +11,6 @@ const advanceType = gql`
         observaciones: String           
         idProyecto:[Proyecto]   
         
-        
     }
     type Proyecto{
         _id: ID!
