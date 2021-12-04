@@ -8,12 +8,12 @@ createUser = async (user) => {
 }
 
 getUsers = async () => {
-    let user = await Usuario.find({}).populate("Proyecto")
+    let user = await Usuario.find({}).populate("idProyecto")
     return user
 }
 
 getUserById = async(userId) =>{
-    let user = await Usuario.findById(userId).populate("Proyecto")
+    let user = await Usuario.findById(userId).populate("idProyecto")
     return user
 }
 

@@ -28,10 +28,9 @@ const ProyectoSchema = new Schema({
     estadoIsActive:{
         type:Boolean
     },
-    fase:{ //corregir
+    fase:{ 
         type:String,
-        required:true,
-        enum:["Iniciado,En desarrollo,Terminado"]
+        enum:["Iniciado,En desarrollo,Terminado"],
     }
 })
 

@@ -1,10 +1,10 @@
+const Inscripcion = require('../models/inscripcion')
 
-
-createInscripcion = async (project) => {
-    let projectInstance = new Proyecto(project)
-    created_project = await projectInstance.save()
-    await userService.UpdateProject(project[''], created_project['_id'])
-    return created_project
+createInscripcion = async (inscripcion) => {
+    let inscripcionInstance = new Inscripcion(inscripcion)
+    created_inscripcion = await inscripcionInstance.save()
+    //await userService.UpdateProject(project[''], created_project['_id'])
+    return created_inscripcion
 }
 
 getInscripciones = async () => {
@@ -12,21 +12,25 @@ getInscripciones = async () => {
     return projects
 }
 
-getInscripcionById = async (projectId) => {
-    let project = await Proyecto.findById(projectId).exec()
-    return project
+getInscripcionById = async (inscripcionId) => {
+    let inscripcion = await Inscripcion.findById(inscripcionId).exec()
+    return inscripcion
 }
 
-updateInscripcion = async (projectId, project) => {
-    newProject = await Proyecto.findByIdAndUpdate(projectId, project, { new: true })
-    return newProject
+updateInscripcion = async (inscripcionId, inscripcion) => {
+    let newInscripcion = await Proyecto.findByIdAndUpdate(inscripcionId, inscripcion, { new: true })
+    return newInscripcion
 }
 
-deleteInscripcion = async (projectId) => {
-    let project = await Proyecto.findByIdAndDelete(projectId)
-    return project
+deleteInscripcion = async (inscripcionId) => {
+    let inscripcion = await Inscripcion.findByIdAndDelete(inscripcionId)
+    return inscripcion
 }
 
 module.exports = {
-    
+    createInscripcion,
+    getInscripciones,
+    getInscripcionById,
+    updateInscripcion,
+    deleteInscripcion 
 }

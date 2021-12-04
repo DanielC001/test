@@ -33,12 +33,12 @@ const UsuarioSchema = new Schema({
     estado:{ 
         type:String,
         enum:["Pendiente","Autorizado","NoAutorizado"],
-        //default:"Pendiente"
+        default:"Pendiente"
     },
-        idProyecto:[{
-            type:Schema.Types.ObjectId,
-            ref:"Proyecto"
-        }]
+    idProyecto:[{
+        type:Schema.Types.ObjectId,
+        ref:"Proyecto"
+    }]
 })
 
 module.exports = mongoose.model("Usuario",UsuarioSchema)

@@ -4,7 +4,7 @@ const userService = require("./usuario")
 createProject = async (project) => {
     let projectInstance = new Proyecto(project)
     created_project = await projectInstance.save()
-    await userService.UpdateProject(project[''], created_project['_id'])
+    await userService.UpdateProject(project['lider'], created_project['_id'])
     return created_project
 }
 
@@ -19,7 +19,7 @@ getProjectById = async (projectId) => {
 }
 
 updateProject = async (projectId, project) => {
-    newProject = await Proyecto.findByIdAndUpdate(projectId, project, { new: true })
+    let newProject = await Proyecto.findByIdAndUpdate(projectId, project, { new: true })
     return newProject
 }
 
