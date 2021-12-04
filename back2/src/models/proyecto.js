@@ -1,5 +1,6 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
+const usuario = require('./usuario')
 
 const ProyectoSchema = new Schema({
     nombre:{
@@ -12,7 +13,7 @@ const ProyectoSchema = new Schema({
         type:String
     }],
     presupuesto:{
-        type:Double
+        type:String
     },
     fechaInicio:{
         type:Date
@@ -22,7 +23,7 @@ const ProyectoSchema = new Schema({
     },
     lider:{
         type:Schema.Types.ObjectId,
-        ref:"usuario"
+        ref:"Usuario"
     },
     estadoIsActive:{
         type:Boolean

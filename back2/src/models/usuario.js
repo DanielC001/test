@@ -1,5 +1,7 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
+const Rol = require('./rol')
+const Proyecto=require('./proyecto')
 
 const UsuarioSchema = new Schema({
     correo:{
@@ -20,19 +22,23 @@ const UsuarioSchema = new Schema({
         type:String,
         required:true
     },
-    contraseña:{
+    contrasena:{
         type:String,
         required:true
     },
     rol:{
         type:Schema.Types.ObjectId,
-        ref:"rol"
+        ref:"Rol"
     },
     estado:{ 
         type:String,
-        required:true,
-        enum:["Pendiente","Autorizado","No autorizado"]
-    }
+        enum:["Pendiente","Autorizado","NoAutorizado"],
+        //default:"Pendiente"
+    },
+        idProyecto:[{
+            type:Schema.Types.ObjectId,
+            ref:"Proyecto"
+        }]
 })
 
 module.exports = mongoose.model("Usuario",UsuarioSchema)

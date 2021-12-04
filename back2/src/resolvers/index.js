@@ -1,5 +1,5 @@
-const {projectResolvers} = require('./project')
-const {userResolvers} = require('./user')
+const {projectResolvers} = require('./proyecto')
+const {userResolvers} = require('./usuario')
 
 const resolvers = [projectResolvers,userResolvers]
 

@@ -1,5 +1,6 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
+const Proyecto = require('./proyecto')
 
 const AvanceSchema = new Schema({
     idProyecto:{
