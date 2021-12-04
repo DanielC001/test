@@ -30,7 +30,7 @@ const ProyectoSchema = new Schema({
     },
     fase:{ 
         type:String,
-        enum:["Iniciado,En desarrollo,Terminado"],
+        enum:["Iniciado,EnDesarrollo,Terminado"],
     }
 })
 

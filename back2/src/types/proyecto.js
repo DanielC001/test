@@ -1,6 +1,12 @@
 const { gql } = require("apollo-server-express")
 
 const projectType = gql`
+
+    enum fase1{
+        Iniciado
+        EnDesarrollo
+        Terminado
+    }
     type Usuario {
         _id: ID!   
         nombre:String     
@@ -20,7 +26,7 @@ const projectType = gql`
         presupuesto:String     
         fechaTerminacion:String
         estadoIsActive:Boolean
-        fase:String         
+        fase:fase1      
 
 
     }
@@ -38,7 +44,7 @@ const projectType = gql`
             presupuesto:String     
             fechaTerminacion:String
             estadoIsActive:Boolean
-            fase:String    
+            fase:fase1  
         ): Proyecto
 
         updateProject(
@@ -49,7 +55,7 @@ const projectType = gql`
             presupuesto:String     
             fechaTerminacion:String
             estadoIsActive:Boolean
-            fase:String    
+            fase:fase1   
         ):Proyecto
 
         deleteProject(_id: ID!):Proyecto

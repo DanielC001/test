@@ -8,7 +8,8 @@ const AvanceSchema = new Schema({
         ref:"proyecto"
     },
     fechaAvance:{
-        type:Date
+        type:Date,
+        default:Date.now()
     },
     descripcion:{
         type:String

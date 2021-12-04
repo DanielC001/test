@@ -6,6 +6,11 @@ const userType = gql`
         Autorizado
         NoAutorizado
     }
+    enum fase1{
+        Iniciado
+        EnDesarrollo
+        Terminado
+    }
 
     type Usuario {
         _id: ID!   
@@ -28,14 +33,13 @@ const userType = gql`
         presupuesto:String     
         fechaTerminacion:String
         estadoIsActive:Boolean
-        fase:String           
+        fase:fase1!         
     }
 
     type Rol{
         _id: ID!
         nombreRol: String
         descripcion: String
-        user: [Usuario]
     }
 
     type Query {
